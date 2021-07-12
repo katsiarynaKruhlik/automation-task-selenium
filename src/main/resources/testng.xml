@@ -35,4 +35,11 @@
         </classes>
     </test>
 
+    <test name="DynamicTableTaskTest">
+        <classes>
+            <class name="tests.DynamicTableTaskTest">
+            </class>
+        </classes>
+    </test>
+
 </suite>
