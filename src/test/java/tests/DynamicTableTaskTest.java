@@ -1,32 +1,22 @@
 package tests;
 
-
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import src.pages.DynamicTableTaskPage;
-import static src.utils.Locators.dynamicTableLinkLocator;
-import static src.utils.Urls.*;
+import static src.utils.Urls.BASE_URL;
 
 
 public class DynamicTableTaskTest extends BaseTest {
-    DynamicTableTaskPage dynamicTablePage = new DynamicTableTaskPage();
 
     @Epic(value = "Testing " + BASE_URL)
-    @Feature(value = "Test for " + DYNAMIC_TABLE_URL)
+    @Feature(value = "Test for Dynamic table")
     @Test
     public void compareValuesOfCPU() {
-        openDynamicTablePage();
+        DynamicTableTaskPage dynamicTablePage = new DynamicTableTaskPage(driver);
+        Assert.assertTrue(dynamicTablePage.dynamicTablePageIsCurrent());
         Assert.assertTrue(dynamicTablePage.valuesAreSame());
-    }
-
-    @Step
-    public void openDynamicTablePage() {
-        dynamicTablePage.clickLocator(dynamicTableLinkLocator);
-        Assert.assertTrue(dynamicTablePage.isUrlCorrect(DYNAMIC_TABLE_URL));
-
     }
 
 }

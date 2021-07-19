@@ -4,17 +4,22 @@ import org.testng.annotations.*;
 import org.openqa.selenium.WebDriver;
 import src.config.Driver;
 import src.interfaces.ILogger;
-import static src.utils.Urls.*;
+
+import static src.utils.Urls.BASE_URL;
 
 public abstract class BaseTest implements ILogger {
-    WebDriver driver;
+    static WebDriver driver;
 
-
-    @BeforeClass
+    @BeforeSuite
     public void setup() {
+        log().info("Opening web driver");
         driver = Driver.initDriver();
-        log().info("Opening home page");
         driver.get(BASE_URL);
+    }
+
+    @AfterClass
+    public void returnHome() {
+        driver.navigate().back();
     }
 
     @AfterSuite

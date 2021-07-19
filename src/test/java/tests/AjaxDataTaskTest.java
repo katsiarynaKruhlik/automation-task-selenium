@@ -2,31 +2,22 @@ package tests;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import src.pages.AjaxDataTaskPage;
-import static src.pages.AjaxDataTaskPage.*;
-import static src.utils.Locators.ajaxLinkLocator;
-import static src.utils.Urls.*;
+import static src.utils.Urls.BASE_URL;
 
 public class AjaxDataTaskTest extends BaseTest {
-    AjaxDataTaskPage ajaxDataPage = new AjaxDataTaskPage();
 
 
     @Epic(value = "Testing " + BASE_URL)
-    @Feature(value = "Test for " + AJAX_DATA_URL)
+    @Feature(value = "Test for AJAX data")
     @Test
     public void checkIfLabelTextAppeared() {
-        openAjaxDataPage();
-        ajaxDataPage.clickLocator(buttonTriggeringAjaxRequestLocator);
+        AjaxDataTaskPage ajaxDataPage = new AjaxDataTaskPage(driver);
+        Assert.assertTrue(ajaxDataPage.ajaxDataPageIsCurrent());
         ajaxDataPage.waitUntilLabelTextAppears();
-        Assert.assertTrue((driver.findElement(labelTextElem)).isDisplayed());
+        Assert.assertTrue(ajaxDataPage.labelTextIsFound());
     }
 
-    @Step
-    public void openAjaxDataPage() {
-        ajaxDataPage.clickLocator(ajaxLinkLocator);
-        Assert.assertTrue(ajaxDataPage.isUrlCorrect(AJAX_DATA_URL));
-    }
 }

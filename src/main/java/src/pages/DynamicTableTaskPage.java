@@ -1,15 +1,22 @@
 package src.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import static src.utils.Urls.BASE_URL;
 import java.util.List;
 
 public class DynamicTableTaskPage extends BasePage {
 
-    public final static By tableLocator = By.xpath("//div[@aria-label=\"Tasks\"]");
-    public final static By chromeLabelLocator = By.xpath("//p[contains(text(),\"Chrome CPU:\")]");
-    public final static By tableElemsList = By.xpath("//span[(text()=\"Chrome\")]/following-sibling::span[@role=\"cell\"]");
+    private final static By tableLocator = By.xpath("//div[@aria-label=\"Tasks\"]");
+    private final static By chromeLabelLocator = By.xpath("//p[contains(text(),\"Chrome CPU:\")]");
+    private final static By tableElemsList = By.xpath("//span[(text()=\"Chrome\")]/following-sibling::span[@role=\"cell\"]");
+    private final static By dynamicTableLinkLocator = By.linkText("Dynamic Table");
+    public static final String DYNAMIC_TABLE_URL = BASE_URL + "dynamictable";
+
+    public DynamicTableTaskPage(WebDriver driver) {
+        super(driver);
+    }
 
     private String getChromeLabelValue() {
         String chromeLabelText = (driver.findElement(chromeLabelLocator)).getText();
@@ -26,6 +33,11 @@ public class DynamicTableTaskPage extends BasePage {
             }
         }
         return false;
+    }
+
+    public boolean dynamicTablePageIsCurrent() {
+        driver.findElement(dynamicTableLinkLocator).click();
+        return isUrlCorrect(DYNAMIC_TABLE_URL);
     }
 
 }
