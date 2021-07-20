@@ -3,8 +3,8 @@ package src.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import src.utils.BasePathEnum;
 import java.util.concurrent.TimeUnit;
-import static src.utils.Urls.BASE_URL;
 
 public class ProgressBarTaskPage extends BasePage {
 
@@ -12,7 +12,7 @@ public class ProgressBarTaskPage extends BasePage {
     private static final By startBtn = By.cssSelector("#startButton");
     private static final By stopBtn = By.cssSelector("#stopButton");
     private static final By progressBarLink = By.linkText("Progress Bar");
-    public static final String PROGRESS_BAR_URL = BASE_URL + "progressbar";
+    public static final String PROGRESS_BAR_URL = BasePathEnum.BASE_URL.getPath() + "progressbar";
 
     public ProgressBarTaskPage(WebDriver driver) {
         super(driver);

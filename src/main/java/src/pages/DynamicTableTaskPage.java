@@ -3,7 +3,8 @@ package src.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import static src.utils.Urls.BASE_URL;
+import src.utils.BasePathEnum;
+
 import java.util.List;
 
 public class DynamicTableTaskPage extends BasePage {
@@ -12,7 +13,7 @@ public class DynamicTableTaskPage extends BasePage {
     private final static By chromeLabelLocator = By.xpath("//p[contains(text(),\"Chrome CPU:\")]");
     private final static By tableElemsList = By.xpath("//span[(text()=\"Chrome\")]/following-sibling::span[@role=\"cell\"]");
     private final static By dynamicTableLinkLocator = By.linkText("Dynamic Table");
-    public static final String DYNAMIC_TABLE_URL = BASE_URL + "dynamictable";
+    public static final String DYNAMIC_TABLE_URL = BasePathEnum.BASE_URL.getPath() + "dynamictable";
 
     public DynamicTableTaskPage(WebDriver driver) {
         super(driver);

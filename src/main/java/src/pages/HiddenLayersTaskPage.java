@@ -2,12 +2,12 @@ package src.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import static src.utils.Urls.BASE_URL;
+import src.utils.BasePathEnum;
 
 public class HiddenLayersTaskPage extends BasePage {
     private static final By greenBtn = By.cssSelector("#greenButton");
     private static final By hiddenLayersLink = By.linkText("Hidden Layers");
-    public static final String HIDDEN_LAYERS_URL = BASE_URL + "hiddenlayers";
+    public static final String HIDDEN_LAYERS_URL = BasePathEnum.BASE_URL.getPath() + "hiddenlayers";
 
     public HiddenLayersTaskPage(WebDriver driver) {
         super(driver);

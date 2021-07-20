@@ -3,14 +3,14 @@ package src.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import static src.utils.Urls.BASE_URL;
+import src.utils.BasePathEnum;
 
 public class MouseOverTaskPage extends BasePage {
 
     private static final By clickMeBtn = By.xpath("Click me");
     private static final By clickCountLocator = By.cssSelector("#clickCount");
     private static final By mouseOverLink = By.linkText("Mouse Over");
-    private static final String MOUSE_OVER_URL = BASE_URL + "mouseover";
+    private static final String MOUSE_OVER_URL = BasePathEnum.BASE_URL.getPath() + "mouseover";
 
     public MouseOverTaskPage(WebDriver driver) {
         super(driver);

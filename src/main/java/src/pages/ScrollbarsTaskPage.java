@@ -3,13 +3,13 @@ package src.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
+import src.utils.BasePathEnum;
 import src.utils.JsExecutor;
-import static src.utils.Urls.BASE_URL;
 
 public class ScrollbarsTaskPage extends BasePage {
     private static final By hidingBtnLocator = (By.xpath("//*[@id=\"hidingButton\"]"));
     private static final By scrollbarsLinkLocator = By.linkText("Scrollbars");
-    public static final String SCROLLBARS_URL = BASE_URL + "scrollbars";
+    public static final String SCROLLBARS_URL = BasePathEnum.BASE_URL.getPath() + "scrollbars";
 
     public ScrollbarsTaskPage(WebDriver driver) {
         super(driver);

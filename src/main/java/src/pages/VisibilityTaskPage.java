@@ -2,8 +2,8 @@ package src.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import src.utils.BasePathEnum;
 import java.util.concurrent.TimeUnit;
-import static src.utils.Urls.*;
 
 public class VisibilityTaskPage extends BasePage {
 
@@ -19,7 +19,7 @@ public class VisibilityTaskPage extends BasePage {
     private static final By offscreenBtn = (By.cssSelector("#offscreenButton"));
 
     private static final By visibilityLinkLocator = (By.linkText("Visibility"));
-    public static final String VISIBILITY_URL = BASE_URL + "visibility";
+    public static final String VISIBILITY_URL = BasePathEnum.BASE_URL.getPath() + "visibility";
 
     public VisibilityTaskPage(WebDriver driver) {
         super(driver);

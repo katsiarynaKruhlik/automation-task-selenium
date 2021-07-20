@@ -4,8 +4,7 @@ import org.testng.annotations.*;
 import org.openqa.selenium.WebDriver;
 import src.config.Driver;
 import src.interfaces.ILogger;
-
-import static src.utils.Urls.BASE_URL;
+import src.utils.BasePathEnum;
 
 public abstract class BaseTest implements ILogger {
     static WebDriver driver;
@@ -14,7 +13,7 @@ public abstract class BaseTest implements ILogger {
     public void setup() {
         log().info("Opening web driver");
         driver = Driver.initDriver();
-        driver.get(BASE_URL);
+        driver.get(BasePathEnum.BASE_URL.getPath());
     }
 
     @AfterClass
